@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import ApiUrl from "../ApiUrl";
 import "./App.css";
 import send from "./assets/send.svg";
 import Chats from "./components/Chats";
@@ -33,7 +34,7 @@ function App() {
 
     userChat.current.value = "";
     try {
-      const responce = await fetch("http://localhost:3000", {
+      const responce = await fetch(`${ApiUrl.API_URL}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

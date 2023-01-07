@@ -1,5 +1,6 @@
 import bot from "./assets/bot.svg";
 import user from "./assets/user.svg";
+import ApiUrl from "./ApiUrl";
 
 const form = document.querySelector("form");
 const chatContainer = document.getElementById("chat_container");
@@ -60,10 +61,6 @@ function initialMessage() {
   );
 
   chatContainer.scrollTop = chatContainer.scrollHeight;
-
-  // const messageDiv = document.getElementById(uniqueId);
-
-  // loader(messageDiv);
 }
 initialMessage();
 
@@ -87,7 +84,7 @@ const handleSubmit = async (e) => {
   loader(messageDiv);
 
   //fetch data from server
-  const responce = await fetch("http://localhost:3000", {
+  const responce = await fetch(`${ApiUrl.API_URL}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
